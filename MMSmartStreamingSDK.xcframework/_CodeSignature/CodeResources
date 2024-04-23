@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		8NVLmOrzntV6iK678MxHQkugUQc=
+		</data>
+		<key>ios-arm64/.DS_Store</key>
+		<data>
+		EmCCsyagOgNgEQSBsB+SiPQSJ1A=
+		</data>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/Headers/M3U8ExtXByteRange.h</key>
 		<data>
 		8h1VY4bo0SJLSe8hhv4dEHfZ+gw=
@@ -82,11 +90,11 @@
 		</data>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/Info.plist</key>
 		<data>
-		AbMDnz/U1DhpHkEicnADjlCRpl0=
+		QX6RM/dafSz4+oADZNclF4B3Jf0=
 		</data>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/MMSmartStreamingSDK</key>
 		<data>
-		17F2Nc/nk59s1NuvdNlSdz9FrxU=
+		Hr2aKlS4xOZy8GWOYTQ6cq3Kj1M=
 		</data>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/Modules/MMSmartStreamingSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -114,7 +122,7 @@
 		</data>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
-		PNeBnLikBpjd8ll/hLkehFr87a4=
+		FMiRaPH0b9g4ZUeIINcV3PAcU4I=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/Headers/M3U8ExtXByteRange.h</key>
 		<data>
@@ -194,11 +202,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/Info.plist</key>
 		<data>
-		jMBvDBzy3I3yDj+M7odHPCMk5to=
+		uHid3vTG3e9g7jd+8l/kdJnaGZ4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/MMSmartStreamingSDK</key>
 		<data>
-		Olcm2jexogCmcFJX9MLpr5uOZXY=
+		CiAwjDwkhrYlGbmzVknhZAP9tXM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/Modules/MMSmartStreamingSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -242,7 +250,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
-		F7ewD8DXeSjaw2CiXcpOFGpfDYs=
+		hFhbar0pqpucGGKgOGi+fWvMxCE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -460,22 +468,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AbMDnz/U1DhpHkEicnADjlCRpl0=
+			QX6RM/dafSz4+oADZNclF4B3Jf0=
 			</data>
 			<key>hash2</key>
 			<data>
-			cJVfnLavxp4RPMKBeMUM8su2dCB0AaPx1OcZRupXdKo=
+			rzuhlhZ5HeHe7vHk6SX3+yWvb2gVDvPzP06rddX6KX8=
 			</data>
 		</dict>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/MMSmartStreamingSDK</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			17F2Nc/nk59s1NuvdNlSdz9FrxU=
+			Hr2aKlS4xOZy8GWOYTQ6cq3Kj1M=
 			</data>
 			<key>hash2</key>
 			<data>
-			w/RJm/JW6y4e3zdBm3X4vJo8dAHb8kANrlIUTWwhuOY=
+			aS8/Qp8fTJD/ee3ABaKigD8mRaS6/cZXTYUxKLg9/e4=
 			</data>
 		</dict>
 		<key>ios-arm64/MMSmartStreamingSDK.framework/Modules/MMSmartStreamingSDK.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -548,11 +556,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PNeBnLikBpjd8ll/hLkehFr87a4=
+			FMiRaPH0b9g4ZUeIINcV3PAcU4I=
 			</data>
 			<key>hash2</key>
 			<data>
-			2gcGU+2UextT8QCkBcbIc35iSd+zteZd1zn4njqRZUM=
+			j8RKtx09faVHAnGi/mTaOzgWM/dm5A/bTjuaq+ZVhPo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/Headers/M3U8ExtXByteRange.h</key>
@@ -768,22 +776,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jMBvDBzy3I3yDj+M7odHPCMk5to=
+			uHid3vTG3e9g7jd+8l/kdJnaGZ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			7QMvLg+ObggXqvfGwUx7FbK5Ej1iyNY2mnFjpUQbMnI=
+			nhEQy/pBO3HXzLLM48uK+72SslReQ7c9gGuRTW7qt7Q=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/MMSmartStreamingSDK</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Olcm2jexogCmcFJX9MLpr5uOZXY=
+			CiAwjDwkhrYlGbmzVknhZAP9tXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			TmZ4YmpXFv7mpuEB2qvrbUGrPr+6N4uWtD9IqgUUD24=
+			KO2H8H5FlV2uYDOQsYxzIkpRfzT5QG8P76S+d6pCvPE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MMSmartStreamingSDK.framework/Modules/MMSmartStreamingSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -900,11 +908,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F7ewD8DXeSjaw2CiXcpOFGpfDYs=
+			hFhbar0pqpucGGKgOGi+fWvMxCE=
 			</data>
 			<key>hash2</key>
 			<data>
-			7GRI845HSWBu9ngnJm4NO2GezG6i3Lz8F4YoE+1gfSI=
+			qpbJzicai3yoE3UODGYzPbhVfl+DngN6hZ5wsLC9EZc=
 			</data>
 		</dict>
 	</dict>
