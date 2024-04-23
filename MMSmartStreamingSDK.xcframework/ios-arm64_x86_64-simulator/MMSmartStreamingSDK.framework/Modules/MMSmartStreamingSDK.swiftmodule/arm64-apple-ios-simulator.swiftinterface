@@ -1,0 +1,1108 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name MMSmartStreamingSDK
+import AVFoundation
+import AVKit
+import CoreTelephony
+import Foundation
+@_exported import MMSmartStreamingSDK
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct VastModel : Swift.Codable {
+  public let version: Swift.String
+  public var ads: [MMSmartStreamingSDK.VastAd]
+  public var errors: [Foundation.URL]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastModel {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastModel : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastModel, b: MMSmartStreamingSDK.VastModel) -> Swift.Bool
+}
+public struct VastLinearCreative : Swift.Codable {
+  public let skipOffset: Swift.String?
+  public var duration: Swift.Double?
+  public var adParameters: MMSmartStreamingSDK.VastAdParameters?
+  public var videoClicks: [MMSmartStreamingSDK.VastVideoClick]
+  public var trackingEvents: [MMSmartStreamingSDK.VastTrackingEvent]
+  public var files: MMSmartStreamingSDK.VastMediaFiles
+  public var icons: [MMSmartStreamingSDK.VastIcon]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastLinearCreative {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastLinearCreative : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastLinearCreative, b: MMSmartStreamingSDK.VastLinearCreative) -> Swift.Bool
+}
+public enum TrackingEventType : Swift.String, Swift.Codable {
+  case impression
+  case firstQuartile
+  case midpoint
+  case thirdQuartile
+  case complete
+  case creativeView
+  case start
+  case mute
+  case unmute
+  case pause
+  case rewind
+  case resume
+  case fullscreen
+  case exitFullscreen
+  case playerExpand
+  case playerCollapse
+  case acceptInvitationLinear
+  case closeLinear
+  case skip
+  case progress
+  case collapse
+  case expand
+  case acceptInvitation
+  case close
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastTrackingEvent : Swift.Codable {
+  public let type: MMSmartStreamingSDK.TrackingEventType
+  public let offset: Swift.Double?
+  public var url: Foundation.URL?
+  public var tracked: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastTrackingEvent {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastTrackingEvent : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastTrackingEvent, b: MMSmartStreamingSDK.VastTrackingEvent) -> Swift.Bool
+}
+public class MMSSAIAdInfo {
+  public var adId: Swift.String
+  public var adTitle: Swift.String
+  public var adServer: Swift.String
+  public var adIndex: Swift.Int
+  public var adTotalAdsInPod: Swift.Int
+  public var adDuration: Swift.Int64
+  public var startTime: Swift.Int64
+  public var endTime: Swift.Int64
+  public var firstQuartile: Swift.Int64
+  public var midPoint: Swift.Int64
+  public var thirdQuartile: Swift.Int64
+  public var complete: Swift.Int64
+  public var adCurrentPlaybackTime: Swift.Int64
+  public var position: Swift.String
+  public var active: Swift.Bool
+  public var adState: Swift.String
+  public var streamType: Swift.String
+  public var isLinear: Swift.Bool
+  public var adTrackerInfo: MMSmartStreamingSDK.AdTrackerInfo?
+  public var adImpressionsTemplates: [MMSmartStreamingSDK.VastImpression]
+  public var adTrackingEvents: [MMSmartStreamingSDK.VastTrackingEvent]
+  public var adClickEvents: [MMSmartStreamingSDK.VastVideoClick]
+  public var adSkipOffset: Swift.Int64
+  public var adStartPosition: Swift.Int64
+  public var adEndPosition: Swift.Int64
+  public var adBreakInfo: Swift.Int
+  public init(aId: Swift.String, aTitle: Swift.String, aServer: Swift.String, aIndex: Swift.Int, adTotalAdsInPod: Swift.Int, aDuration: Swift.Int64, sTime: Swift.Int64, eTime: Swift.Int64, fqTime: Swift.Int64, mpTime: Swift.Int64, tqTime: Swift.Int64, complete: Swift.Int64, adCurrentTime: Swift.Int64, position: Swift.String, active: Swift.Bool, aState: Swift.String, sType: Swift.String, isLinear: Swift.Bool, atInfo: MMSmartStreamingSDK.AdTrackerInfo, aImpressionsTemplates: [MMSmartStreamingSDK.VastImpression], aTrackingEvents: [MMSmartStreamingSDK.VastTrackingEvent], adClickEvents: [MMSmartStreamingSDK.VastVideoClick], adSkipOffset: Swift.Int64, startPosition: Swift.Int64, endPosition: Swift.Int64, adBreakInfo: Swift.Int)
+  public func updateAdState(state: Swift.String)
+  @objc deinit
+}
+public class AdTrackerInfo {
+  public var isAdImpressionSent: Swift.Bool
+  public var isAdStartSent: Swift.Bool
+  public var isFirstQuartileSent: Swift.Bool
+  public var isMidPointSent: Swift.Bool
+  public var isThirdQuartileSent: Swift.Bool
+  public var isAdCompleteSent: Swift.Bool
+  public var isAdSkippedSent: Swift.Bool
+  public init()
+  public func resetToDefault()
+  public func setAdComplete()
+  @objc deinit
+}
+public struct VastResource : Swift.Codable {
+  public let apiFramework: Swift.String?
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastResource : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastResource, b: MMSmartStreamingSDK.VastResource) -> Swift.Bool
+}
+public protocol VastTrackerDelegate : AnyObject {
+  func adFirstQuartile(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+  func adMidpoint(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+  func adThirdQuartile(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+}
+public struct TrackerModel {
+}
+public class VastTracker {
+  weak public var delegate: (any MMSmartStreamingSDK.VastTrackerDelegate)?
+  final public let vastModel: MMSmartStreamingSDK.VastModel
+  final public let totalAds: Swift.Int
+  final public let startTime: Swift.Double
+  public init(vastModel: MMSmartStreamingSDK.VastModel, startTime: Swift.Double = 0.0, supportAdBuffets: Swift.Bool = false, delegate: (any MMSmartStreamingSDK.VastTrackerDelegate)? = nil, trackProgressCumulatively: Swift.Bool = true)
+  @objc deinit
+}
+extension MMSmartStreamingSDK.VastTracker {
+  public func updateProgress(time: Swift.Double) throws
+  public func trackAdBreakStart(for adBreak: MMSmartStreamingSDK.VMAPAdBreak)
+  public func trackAdBreakEnd(for adBreak: MMSmartStreamingSDK.VMAPAdBreak)
+  public func trackAdBreakEvents(for adBreak: MMSmartStreamingSDK.VMAPAdBreak, withURLs urls: [Foundation.URL])
+  public func trackAdStart(withId id: Swift.String) throws
+  public func trackAdComplete() throws
+  public func trackSkippedAds(with ids: [Swift.String])
+  public func played() throws
+  public func paused() throws
+  public func fullscreen(_ val: Swift.Bool) throws
+  public func rewind() throws
+  public func muted(_ val: Swift.Bool) throws
+  public func acceptedLinearInvitation() throws
+  public func closed() throws
+  public func clicked() throws -> Foundation.URL?
+  public func clickedWithCustomAction() throws -> [Foundation.URL]
+  public func error(withReason code: MMSmartStreamingSDK.VastErrorCodes?) throws
+  public func trackViewability(type: MMSmartStreamingSDK.VastViewableImpressionType) throws
+}
+public struct VastAdCategory : Swift.Codable {
+  public let authority: Foundation.URL?
+  public var category: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastAdCategory : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastAdCategory, b: MMSmartStreamingSDK.VastAdCategory) -> Swift.Bool
+}
+public enum VMAPTrackingEventType : Swift.String, Swift.Codable {
+  case breakStart
+  case breakEnd
+  case error
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VMAPTrackingEvent : Swift.Codable {
+  public let event: MMSmartStreamingSDK.VMAPTrackingEventType
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VMAPTrackingEvent {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+public struct VMAPModel : Swift.Codable {
+  public let version: Swift.String
+  public var adBreaks: [MMSmartStreamingSDK.VMAPAdBreak]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VMAPModel {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+@_inheritsConvenienceInitializers @objc public class GenericMMWrapper : ObjectiveC.NSObject, MMSmartStreamingSDK.MMSmartStreamingObserver {
+  weak public var mmssaiDelegate: (any MMSmartStreamingSDK.SSAIManagerDelegate)?
+  public static let shared: MMSmartStreamingSDK.GenericMMWrapper
+  weak public var genericAdDelegate: (any MMSmartStreamingSDK.GenericAdProtocol)?
+  @objc public func sessionInitializationCompleted(with status: MMSmartStreamingSDK.MMSmartStreamingInitializationStatus, andDescription description: Swift.String!, forCmdWithId cmdId: Swift.Int, nowtilusPermission enableNowtilus: Swift.Bool)
+  public func initialiseSSAIAdManager(mediaUrl: Swift.String, vastUrl: Swift.String, isLive: Swift.Bool, vodResponseData: Foundation.Data)
+  public func enableSSAILogTrace()
+  public func disableSSAILogTrace()
+  public func parseVastURL(vastURL: Swift.String)
+  public func setValidAdId(validAdId: Swift.String)
+  public func syncEpochTime(epochTime: Swift.Int64)
+  public func initialiseSSAIAdManager(mediaUrl: Swift.String, isLive: Swift.Bool, pollForVast: Swift.Bool)
+  public func stopSSAIAdManager()
+  public static func getSSAIVersion() -> Swift.String
+  public static func getSDKVersion() -> Swift.String
+  public static func disableManifestsFetch(disable: Swift.Bool)
+  public static func cleanUp()
+  public static func updateSubscriber(subscriberId: Swift.String, subscriberType: Swift.String, subscriberMetadata: Swift.String)
+  public func reportCustomMetadata(key: Swift.String, value: Swift.String)
+  public func reportSDKVersion(reportSDKVersion: Swift.String)
+  public func reportAppData(appName: Swift.String, appVersion: Swift.String)
+  public func reportVideoQuality(videoQuality: Swift.String)
+  public func reportDeviceMarketingName(deviceMarketingName: Swift.String)
+  public func enableLogTrace(logStTrace: Swift.Bool)
+  public func reportError(error: Swift.String, playbackPosMilliSec: Swift.Int)
+  public static func reportMetricValue(metricToOverride: MMSmartStreamingSDK.MMOverridableMetric, value: Swift.String)
+  public func registerForMMSDK(registrationInformation pInfo: MMSmartStreamingSDK.MMRegistrationInformation)
+  public func initialiseSession(registrationUri: Swift.String, assetInformation: MMSmartStreamingSDK.MMAssetInformation)
+  public func reportBufferingStart()
+  public func reportBufferingComplete()
+  public func reportPlayerState(playerState: MMSmartStreamingSDK.MMPlayerState)
+  public func updatePlaybackPosition(currentPosition: Swift.Int)
+  public func reportABRSwitch(oldBitRate: Swift.Int, newBitrate: Swift.Int)
+  public func setPresentationSize(width: Swift.Int, height: Swift.Int)
+  public func setToolboxEndpointDetails(url: Swift.String, tbtoken: Swift.String, tbid: Swift.String, cid: Swift.String)
+  public func setStarzEndpointDetails(url: Swift.String, szapikey: Swift.String, szsession: Swift.String, cid: Swift.String)
+  public func updatePresentationInformation(duration: Swift.Int, presentationInfos: [MMSmartStreamingSDK.VOPlayerAlternateInfo])
+  public func setPresentationInformation(presentationInfo: MMSmartStreamingSDK.MMPresentationInfo)
+  public func reportChunkRequest(bitrate: Swift.Int, fragmentDuration: Swift.Int?, url: Swift.String?)
+  public func reportDownloadRate(downloadRate: Swift.Int)
+  public func seekPositionChanged(currentPlaybackTime: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension MMSmartStreamingSDK.GenericMMWrapper : MMSmartStreamingSDK.MMSSAIDelegate {
+  public func notifySSAIEventWithTimeline(state: MMSmartStreamingSDK.MMAdState, adTimeline: [MMSmartStreamingSDK.MMSSAIAdInfo])
+  public func notifySSAIAdEvent(state: MMSmartStreamingSDK.MMAdState, adInfo: MMSmartStreamingSDK.MMSSAIAdInfo)
+  public func notifyAdEventWith(state: MMSmartStreamingSDK.MMAdState, vastAd: MMSmartStreamingSDK.VastAd?, vastTracker: MMSmartStreamingSDK.VastTracker, andAdIndex index: Swift.Int)
+}
+public class VOPlayerAlternateInfo {
+  public init(tIndex: Swift.Int?, bitRate: Swift.Int?, width: Swift.Int?, height: Swift.Int?, codecIdentifier: Swift.String?)
+  @objc deinit
+}
+public enum AdType : Swift.String, Swift.Codable {
+  case inline
+  case wrapper
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastAd : Swift.Codable {
+  public var type: MMSmartStreamingSDK.AdType
+  public let id: Swift.String
+  public let sequence: Swift.Int?
+  public let conditionalAd: Swift.Bool?
+  public var adSystem: MMSmartStreamingSDK.VastAdSystem?
+  public var impressions: [MMSmartStreamingSDK.VastImpression]
+  public var adVerifications: [MMSmartStreamingSDK.VastVerification]
+  public var viewableImpression: MMSmartStreamingSDK.VastViewableImpression?
+  public var pricing: MMSmartStreamingSDK.VastPricing?
+  public var errors: [Foundation.URL]
+  public var creatives: [MMSmartStreamingSDK.VastCreative]
+  public var extensions: [MMSmartStreamingSDK.VastExtension]
+  public var adTitle: Swift.String?
+  public var adCategories: [MMSmartStreamingSDK.VastAdCategory]
+  public var description: Swift.String?
+  public var advertiser: Swift.String?
+  public var surveys: [MMSmartStreamingSDK.VastSurvey]
+  public var wrapper: MMSmartStreamingSDK.VastWrapper?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastAd {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastAd : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastAd, b: MMSmartStreamingSDK.VastAd) -> Swift.Bool
+}
+public enum CompanionsRequirement : Swift.String, Swift.Codable {
+  case all
+  case any
+  case none
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastCompanionAds : Swift.Codable {
+  public let required: MMSmartStreamingSDK.CompanionsRequirement
+  public var companions: [MMSmartStreamingSDK.VastCompanionCreative]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastCompanionAds {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastCompanionAds : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastCompanionAds, b: MMSmartStreamingSDK.VastCompanionAds) -> Swift.Bool
+}
+public struct VastStaticResource : Swift.Codable {
+  public let creativeType: Swift.String
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastStaticResource : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastStaticResource, b: MMSmartStreamingSDK.VastStaticResource) -> Swift.Bool
+}
+public struct VMAPExtension {
+}
+public struct VastCreativeExtension : Swift.Codable {
+  public let mimeType: Swift.String?
+  public var content: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastCreativeExtension {
+  public init?(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastCreativeExtension : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastCreativeExtension, b: MMSmartStreamingSDK.VastCreativeExtension) -> Swift.Bool
+}
+public struct IconClicks : Swift.Codable {
+  public var iconClickThrough: Foundation.URL?
+  public var iconClickTracking: [MMSmartStreamingSDK.VastIconClickTracking]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.IconClicks : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.IconClicks, b: MMSmartStreamingSDK.IconClicks) -> Swift.Bool
+}
+public struct VastMediaFile : Swift.Codable {
+  public let delivery: Swift.String
+  public let type: Swift.String
+  public let width: Swift.String
+  public let height: Swift.String
+  public let codec: Swift.String?
+  public let id: Swift.String?
+  public let bitrate: Swift.Int?
+  public let minBitrate: Swift.Int?
+  public let maxBitrate: Swift.Int?
+  public let scalable: Swift.Bool?
+  public let maintainAspectRatio: Swift.Bool?
+  public let apiFramework: Swift.String?
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastMediaFile {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastMediaFile : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastMediaFile, b: MMSmartStreamingSDK.VastMediaFile) -> Swift.Bool
+}
+public struct VastCompanionClickTracking {
+  public let id: Swift.String?
+}
+public struct VastCompanionCreative : Swift.Codable {
+  public let width: Swift.Int
+  public let height: Swift.Int
+  public let id: Swift.String?
+  public let assetWidth: Swift.Int?
+  public let assetHeight: Swift.Int?
+  public let expandedWidth: Swift.Int?
+  public let expandedHeight: Swift.Int?
+  public let apiFramework: Swift.String?
+  public let adSlotId: Swift.String?
+  public let pxRatio: Swift.Double?
+  public var staticResource: [MMSmartStreamingSDK.VastStaticResource]
+  public var iFrameResource: [Foundation.URL]
+  public var htmlResource: [Foundation.URL]
+  public var altText: Swift.String?
+  public var companionClickThrough: Foundation.URL?
+  public var companionClickTracking: [Foundation.URL]
+  public var trackingEvents: [MMSmartStreamingSDK.VastTrackingEvent]
+  public var adParameters: MMSmartStreamingSDK.VastAdParameters?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastCompanionCreative {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastCompanionCreative : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastCompanionCreative, b: MMSmartStreamingSDK.VastCompanionCreative) -> Swift.Bool
+}
+extension Swift.String {
+  public var toSeconds: Swift.Double? {
+    get
+  }
+}
+public struct VastExtension : Swift.Codable {
+  public let type: Swift.String
+  public var creativeParameters: [MMSmartStreamingSDK.VastCreativeParameter]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastExtension {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastExtension : Swift.Equatable {
+  public static func == (lhs: MMSmartStreamingSDK.VastExtension, rhs: MMSmartStreamingSDK.VastExtension) -> Swift.Bool
+}
+public enum VastError : Swift.Error {
+  case invalidXMLDocument
+  case invalidVASTDocument
+  case unableToParseDocument
+  case unableToCreateXMLParser
+  case wrapperLimitReached
+  case singleRequestTimeLimitReached
+  case wrapperTimeLimitReached
+  case internalError
+  public static func == (a: MMSmartStreamingSDK.VastError, b: MMSmartStreamingSDK.VastError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct VastWrapper : Swift.Codable {
+  public let followAdditionalWrappers: Swift.Bool?
+  public let allowMultipleAds: Swift.Bool?
+  public let fallbackOnNoAd: Swift.Bool?
+  public var adTagUri: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastWrapper : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastWrapper, b: MMSmartStreamingSDK.VastWrapper) -> Swift.Bool
+}
+public enum ReachabilityErrorMM : Swift.Error {
+  case FailedToCreateWithAddress(Darwin.sockaddr_in)
+  case FailedToCreateWithHostname(Swift.String)
+  case UnableToSetCallback
+  case UnableToSetDispatchQueue
+}
+public let ReachabilityChangedNotificationMM: Foundation.NSNotification.Name
+public class ReachabilityMM {
+  public typealias NetworkReachable = (MMSmartStreamingSDK.ReachabilityMM) -> ()
+  public typealias NetworkUnreachable = (MMSmartStreamingSDK.ReachabilityMM) -> ()
+  public enum NetworkStatus : Swift.CustomStringConvertible {
+    case notReachable, reachableViaWiFi, reachableViaWWAN
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: MMSmartStreamingSDK.ReachabilityMM.NetworkStatus, b: MMSmartStreamingSDK.ReachabilityMM.NetworkStatus) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var whenReachable: MMSmartStreamingSDK.ReachabilityMM.NetworkReachable?
+  public var whenUnreachable: MMSmartStreamingSDK.ReachabilityMM.NetworkUnreachable?
+  public var reachableOnWWAN: Swift.Bool
+  public var currentReachabilityString: Swift.String {
+    get
+  }
+  public var currentReachabilityStatus: MMSmartStreamingSDK.ReachabilityMM.NetworkStatus {
+    get
+  }
+  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability)
+  convenience public init?(hostname: Swift.String)
+  convenience public init?()
+  @objc deinit
+}
+extension MMSmartStreamingSDK.ReachabilityMM {
+  public func startNotifier() throws
+  public func stopNotifier()
+  public var isReachable: Swift.Bool {
+    get
+  }
+  public var isReachableViaWWAN: Swift.Bool {
+    get
+  }
+  public var isReachableViaWiFi: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public struct VastNonLinear : Swift.Codable {
+  public var height: Swift.String
+  public var id: Swift.String
+  public var width: Swift.String
+  public var staticResource: MMSmartStreamingSDK.VastStaticResource?
+  public var nonLinearClickTracking: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastNonLinear {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastNonLinear : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastNonLinear, b: MMSmartStreamingSDK.VastNonLinear) -> Swift.Bool
+}
+public enum VMAPAdSourceTemplate : Swift.String, Swift.Codable {
+  case vast
+  case vast1
+  case vast2
+  case vast3
+  case vast4
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VMAPAdSource : Swift.Codable {
+  public let allowMultipleAds: Swift.Bool
+  public let followRedirects: Swift.Bool
+  public let id: Swift.String
+  public var vastAdData: MMSmartStreamingSDK.VastModel?
+  public var adTagURI: Foundation.URL?
+  public var customAdData: Swift.String?
+  public var templateType: MMSmartStreamingSDK.VMAPAdSourceTemplate?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VMAPAdSource {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+public enum VMAPAdBreakType : Swift.String, Swift.Codable {
+  case linear
+  case nonlinear
+  case display
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VMAPAdBreak : Swift.Codable {
+  public var breakId: Swift.String?
+  public var repeatAfter: Swift.String?
+  public let breakType: MMSmartStreamingSDK.VMAPAdBreakType
+  public let timeOffset: Swift.String
+  public var adSource: MMSmartStreamingSDK.VMAPAdSource?
+  public var trackingEvents: [MMSmartStreamingSDK.VMAPTrackingEvent]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VMAPAdBreak {
+  public init(attrDict: [Swift.String : Swift.String])
+  public func trackEvent(withType type: MMSmartStreamingSDK.VMAPTrackingEventType)
+  public func trackEvents(withUrls urls: [Foundation.URL])
+}
+public struct VastInteractiveCreativeFile : Swift.Codable {
+  public let type: Swift.String?
+  public let apiFramework: Swift.String?
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastInteractiveCreativeFile : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastInteractiveCreativeFile, b: MMSmartStreamingSDK.VastInteractiveCreativeFile) -> Swift.Bool
+}
+public enum MMSSAIAdSate : Swift.Int {
+  case request
+  case adPlaying
+  case adPaused
+  case adSkipped
+  case adCompleted
+  case adError
+  case adBlocked
+  case adImpression
+  case adStarted
+  case adClicked
+  case adResumed
+  case adFirstQuartile
+  case adMidpoint
+  case adThirdQuartile
+  case adEnded
+  case adCueTimelineAdded
+  case adCueTimelineStart
+  case adCueTimelineEnd
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class MMSSAIAdDetails {
+  public var adId: Swift.String
+  public var adTitle: Swift.String
+  public var adServer: Swift.String
+  public var adIndex: Swift.Int
+  public var adTotalAdsInPod: Swift.Int
+  public var adDuration: Swift.Int64
+  public var startTime: Swift.Int64
+  public var endTime: Swift.Int64
+  public var firstQuartile: Swift.Int64
+  public var midPoint: Swift.Int64
+  public var thirdQuartile: Swift.Int64
+  public var complete: Swift.Int64
+  public var adCurrentPlaybackTime: Swift.Int64
+  public var position: Swift.String
+  public var active: Swift.Bool
+  public var adState: Swift.String
+  public var streamType: Swift.String
+  public var isLinear: Swift.Bool
+  public var adImpressionsTemplates: [MMSmartStreamingSDK.VastImpression]
+  public var adTrackingEvents: [MMSmartStreamingSDK.VastTrackingEvent]
+  public var adClickEvents: [MMSmartStreamingSDK.VastVideoClick]
+  public var adStartPosition: Swift.Int64
+  public var adEndPosition: Swift.Int64
+  @objc deinit
+}
+public protocol GenericAdProtocol : AnyObject {
+  func notifySSAIAdDetails(eventName: MMSmartStreamingSDK.MMSSAIAdSate, adInfo: MMSmartStreamingSDK.MMSSAIAdDetails)
+  func notifySSAIAdDetailsWithTimeline(eventName: MMSmartStreamingSDK.MMSSAIAdSate, adTimeline: [MMSmartStreamingSDK.MMSSAIAdDetails])
+}
+public protocol SSAIManagerDelegate : AnyObject {
+  func notifyMMSSAIAdEventsWithTimeline(eventName: MMSmartStreamingSDK.MMAdState, anAdTimeline adTimeline: [MMSmartStreamingSDK.MMSSAIAdInfo])
+  func notifyMMSSAIAdEventsWith(eventName: MMSmartStreamingSDK.MMAdState, andAdInfo adInfo: MMSmartStreamingSDK.MMSSAIAdInfo)
+}
+public enum MMCurrentPlayerState {
+  case IDLE, PLAYING, PAUSED, STOPPED, ERROR
+  public static func == (a: MMSmartStreamingSDK.MMCurrentPlayerState, b: MMSmartStreamingSDK.MMCurrentPlayerState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct VastAdVerificationParameters : Swift.Codable {
+  public var data: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastAdVerificationParameters : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastAdVerificationParameters, b: MMSmartStreamingSDK.VastAdVerificationParameters) -> Swift.Bool
+}
+public struct VastUniversalAdId : Swift.Codable {
+  public let idRegistry: Swift.String
+  public let idValue: Swift.String
+  public var uniqueCreativeId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastUniversalAdId {
+  public init?(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastUniversalAdId : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastUniversalAdId, b: MMSmartStreamingSDK.VastUniversalAdId) -> Swift.Bool
+}
+public struct VastCreative : Swift.Codable {
+  public let id: Swift.String?
+  public let adId: Swift.String?
+  public let sequence: Swift.Int?
+  public let apiFramework: Swift.String?
+  public var universalAdId: MMSmartStreamingSDK.VastUniversalAdId?
+  public var creativeExtensions: [MMSmartStreamingSDK.VastCreativeExtension]
+  public var linear: MMSmartStreamingSDK.VastLinearCreative?
+  public var nonLinearAds: MMSmartStreamingSDK.VastNonLinearAdsCreative?
+  public var companionAds: MMSmartStreamingSDK.VastCompanionAds?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastCreative {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastCreative : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastCreative, b: MMSmartStreamingSDK.VastCreative) -> Swift.Bool
+}
+@objc public class MMRegistrationInformation : ObjectiveC.NSObject {
+  public var customerID: Swift.String!
+  public var component: Swift.String!
+  public var playerName: Swift.String!
+  public var domainName: Swift.String?
+  public var subscriberID: Swift.String?
+  public var subscriberType: Swift.String?
+  public var subscriberTag: Swift.String?
+  public var playerBrand: Swift.String?
+  public var playerModel: Swift.String?
+  public var playerVersion: Swift.String?
+  public init(customerID cID: Swift.String, playerName pName: Swift.String)
+  public func setDomain(_ dName: Swift.String?)
+  public func setSubscriberInformation(subscriberID subsID: Swift.String?, subscriberType subsType: Swift.String?, subscriberTag subsTag: Swift.String?)
+  public func setPlayerInformation(brand: Swift.String?, model: Swift.String?, version: Swift.String?)
+  public func setComponentName(_ cName: Swift.String?)
+  @objc deinit
+}
+public enum MMOverridableMetrics {
+  case latency, cdn, durationWatched
+  public static func == (a: MMSmartStreamingSDK.MMOverridableMetrics, b: MMSmartStreamingSDK.MMOverridableMetrics) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct VastNonLinearAdsCreative : Swift.Codable {
+  public var trackingEvents: [MMSmartStreamingSDK.VastTrackingEvent]
+  public var nonLinear: [MMSmartStreamingSDK.VastNonLinear]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastNonLinearAdsCreative : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastNonLinearAdsCreative, b: MMSmartStreamingSDK.VastNonLinearAdsCreative) -> Swift.Bool
+}
+public enum VMAPError : Swift.Error {
+  case invalidXMLDocument
+  case invalidVMAPDocument
+  case unableToParseDocument
+  case unableToCreateXMLParser
+  case internalError
+  public static func == (a: MMSmartStreamingSDK.VMAPError, b: MMSmartStreamingSDK.VMAPError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct VastSurvey : Swift.Codable {
+  public let type: Swift.String?
+  public var survey: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastSurvey : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastSurvey, b: MMSmartStreamingSDK.VastSurvey) -> Swift.Bool
+}
+public enum ClickType : Swift.String, Swift.Codable {
+  case clickThrough
+  case clickTracking
+  case customClick
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastVideoClick : Swift.Codable {
+  public let id: Swift.String?
+  public let type: MMSmartStreamingSDK.ClickType
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastVideoClick {
+  public init(type: MMSmartStreamingSDK.ClickType, attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastVideoClick : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastVideoClick, b: MMSmartStreamingSDK.VastVideoClick) -> Swift.Bool
+}
+public struct VastClientOptions {
+  public let wrapperLimit: Swift.Int
+  public let singleWrapperTimeLimit: Foundation.TimeInterval
+  public let timeLimit: Foundation.TimeInterval
+  public let cachedVMAPModel: MMSmartStreamingSDK.VMAPModel?
+  public init(wrapperLimit: Swift.Int = 5, singleWrapperTimeLimit: Foundation.TimeInterval = 5, timeLimit: Foundation.TimeInterval = 10, cachedVMAPModel: MMSmartStreamingSDK.VMAPModel? = nil)
+}
+public class VastClient {
+  public static var trackingLogOutput: ((Swift.String, [Foundation.URL]) -> ())?
+  public init(options: MMSmartStreamingSDK.VastClientOptions = VastClientOptions())
+  public func parseVast(withContentsOf url: Foundation.URL, completion: @escaping (MMSmartStreamingSDK.VastModel?, (any Swift.Error)?) -> ())
+  public func parseVast(withContentsOf stringXMLData: Swift.String, completion: @escaping (MMSmartStreamingSDK.VastModel?, (any Swift.Error)?) -> ())
+  public func parseVMAP(withContentsOf url: Foundation.URL) throws -> MMSmartStreamingSDK.VMAPModel
+  @objc deinit
+}
+public protocol VastTrackerNonLinearDelegate : AnyObject {
+  func adBreakStart(vastTracker: MMSmartStreamingSDK.VastTrackerNonLinear)
+  func adBreakComplete(vastTracker: MMSmartStreamingSDK.VastTrackerNonLinear)
+}
+public class VastTrackerNonLinear {
+  weak public var delegate: (any MMSmartStreamingSDK.VastTrackerNonLinearDelegate)?
+  final public let id: Swift.String
+  final public let vastModel: MMSmartStreamingSDK.VastModel
+  final public let totalAds: Swift.Int
+  final public let startTime: Swift.Double
+  @available(*, message: "do not use VastTracker for storing this model, it is not being used")
+  public var vmapModel: MMSmartStreamingSDK.VMAPModel?
+  public init(id: Swift.String, vastModel: MMSmartStreamingSDK.VastModel, startTime: Swift.Double = 0.0, supportAdBuffets: Swift.Bool = false, delegate: (any MMSmartStreamingSDK.VastTrackerNonLinearDelegate)? = nil, trackProgressCumulatively: Swift.Bool = true)
+  @available(*, message: "Use init(id:,vastModel:) instead")
+  convenience public init(id: Swift.String, vmapModel: MMSmartStreamingSDK.VMAPModel, breakId: Swift.String, startTime: Swift.Double, supportAdBuffets: Swift.Bool = false, delegate: (any MMSmartStreamingSDK.VastTrackerNonLinearDelegate)? = nil) throws
+  public func updateProgress(time: Swift.Double) throws
+  public func adBreakCompleted() throws
+  @objc deinit
+}
+public protocol MMSSAIDelegate {
+  func notifySSAIEventWithTimeline(state: MMSmartStreamingSDK.MMAdState, adTimeline: [MMSmartStreamingSDK.MMSSAIAdInfo])
+  func notifySSAIAdEvent(state: MMSmartStreamingSDK.MMAdState, adInfo: MMSmartStreamingSDK.MMSSAIAdInfo)
+}
+@objc @_inheritsConvenienceInitializers public class MMSSAIAdManager : ObjectiveC.NSObject {
+  public var isAdManagerSet: Swift.Bool
+  public var delegate: (any MMSmartStreamingSDK.MMSSAIDelegate)?
+  @objc override dynamic public init()
+  public func setupMediaURL(mediaURL: Swift.String)
+  public func parseVastFromManifest(vastUrl: Swift.String)
+  public func setValidAdId(validAdId: Swift.String)
+  public func setupSSAIAdManager(mediaURL: Swift.String, vastUrl: Swift.String, isLive: Swift.Bool, vodResponseData: Foundation.Data)
+  public func setupSSAIAdManager(mediaURL: Swift.String, isLive: Swift.Bool, pollForVast: Swift.Bool)
+  public func enableSSAILogTrace()
+  public func disableSSAILogTrace()
+  public func stopSSAIAdManager()
+  public func notifyPlayerPlaybackTime(playbackTime: Swift.Int)
+  public func syncPDTPosition(pdtInMs: Swift.Int64)
+  @objc deinit
+}
+extension MMSmartStreamingSDK.MMSSAIAdManager : MMSmartStreamingSDK.VastTrackerDelegate {
+  public func adFirstQuartile(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+  public func adMidpoint(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+  public func adThirdQuartile(vastTracker: MMSmartStreamingSDK.VastTracker, ad: MMSmartStreamingSDK.VastAd)
+}
+public struct VastIconClickTracking : Swift.Codable {
+  public let id: Swift.String?
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastIconClickTracking : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastIconClickTracking, b: MMSmartStreamingSDK.VastIconClickTracking) -> Swift.Bool
+}
+public struct VastVerification : Swift.Codable {
+  public let vendor: Foundation.URL?
+  public var viewableImpression: MMSmartStreamingSDK.VastViewableImpression?
+  public var javaScriptResource: [MMSmartStreamingSDK.VastResource]
+  public var flashResources: [MMSmartStreamingSDK.VastResource]
+  public var verificationParameters: MMSmartStreamingSDK.VastAdVerificationParameters?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastVerification : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastVerification, b: MMSmartStreamingSDK.VastVerification) -> Swift.Bool
+}
+public struct VastImpression : Swift.Codable {
+  public let id: Swift.String?
+  public var url: Foundation.URL?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastImpression {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastImpression : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastImpression, b: MMSmartStreamingSDK.VastImpression) -> Swift.Bool
+}
+@objc public class MMAssetInformation : ObjectiveC.NSObject {
+  public var assetURL: Swift.String!
+  public var assetID: Swift.String?
+  public var assetName: Swift.String?
+  public var videoId: Swift.String?
+  public var qbrMode: MMSmartStreamingSDK.MMQBRMode
+  public var metafileURL: Foundation.URL?
+  public var customKVPs: [Swift.String : Swift.String]!
+  public var contentType: Swift.String?
+  public var drmProtection: Swift.String?
+  public var episodeNumber: Swift.String?
+  public var genre: Swift.String?
+  public var season: Swift.String?
+  public var seriesTitle: Swift.String?
+  public init(assetURL aURL: Swift.String, assetID aId: Swift.String?, assetName aName: Swift.String?, videoId vId: Swift.String?)
+  @objc public init(assetURL aURL: Swift.String, assetID aId: Swift.String?, assetName aName: Swift.String?, videoId vId: Swift.String?, contyentType cType: Swift.String? = nil, drmProtection: Swift.String? = nil, episodeNumber eNumber: Swift.String? = nil, genre: Swift.String? = nil, season: Swift.String? = nil, seriesTitle: Swift.String? = nil)
+  public func addCustomKVP(_ key: Swift.String, _ value: Swift.String)
+  public func setQBRMode(_ mode: MMSmartStreamingSDK.MMQBRMode, withMetaURL metaURL: Foundation.URL?)
+  public func setContentType(_ cType: Swift.String?)
+  public func setDrmProtection(_ drmP: Swift.String?)
+  public func setEpisodeNumber(_ eNumber: Swift.String?)
+  public func setGenre(_ genre: Swift.String?)
+  public func setSeason(_ season: Swift.String?)
+  public func setSeriesTitle(_ sTitle: Swift.String?)
+  @objc deinit
+}
+public enum VMAPErrorCodes : Swift.Int {
+  case undefined
+  case vmapSchemaError
+  case vmapResponesVersionNotSupported
+  case vmapParsingError
+  case adBreakTypeNotSupported
+  case generalAdResponseDocumentError
+  case adResponseTemplateTypeNotSupported
+  case adResponseDocumentExtractionOrParsingError
+  case adResponseDocumentRetrievalTimeout
+  case adResponseDocumentRetrievalError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum VastErrorCodes : Swift.Int {
+  case xmlParsingError
+  case vastSchemaValidationError
+  case vastVersionOfResponseNotSupported
+  case traffickingError
+  case videoPlayerExpectingDifferentLinearity
+  case videoPlayerExpectingDifferentDuration
+  case videoPlayerExpectingDifferentSize
+  case adCategoryNotProvided
+  case generalWrapperError
+  case timeoutOfVastURI
+  case wrapperLimitReached
+  case noAdsVastResponse
+  case inlineResponseFailedToDisplayInTime
+  case generalLinearError
+  case fileNotFound
+  case timeoutOfMediaFile
+  case mediaFileNotSupported
+  case problemDisplayingMediaFile
+  case conditionalAdRejected
+  case interactiveUnitInNodeNotExecuted
+  case verificationUnitInNodeNotExecuted
+  case generalNonLinearAdsError
+  case creativeDimensionTooLarge
+  case unableToFetchResource
+  case nonLinearResourceNotSupported
+  case generalCompanionAdsError
+  case noAvailableSpace
+  case unableToDisplayCompanion
+  case unableToFetchCompanionResource
+  case companionResourceNotSupported
+  case undefinedError
+  case generalVPAIDError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum VastViewableImpressionType : Swift.String {
+  case viewable
+  case notViewable
+  case viewUndetermined
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastViewableImpression : Swift.Codable {
+  public let id: Swift.String
+  public var url: Foundation.URL?
+  public var viewable: [Foundation.URL]
+  public var notViewable: [Foundation.URL]
+  public var viewUndetermined: [Foundation.URL]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastViewableImpression : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastViewableImpression, b: MMSmartStreamingSDK.VastViewableImpression) -> Swift.Bool
+}
+public struct VastCreativeParameter : Swift.Codable {
+  public var creativeId: Swift.String
+  public var name: Swift.String
+  public var type: Swift.String
+  public var content: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastCreativeParameter {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastCreativeParameter : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastCreativeParameter, b: MMSmartStreamingSDK.VastCreativeParameter) -> Swift.Bool
+}
+public struct VastIcon : Swift.Codable {
+  public let program: Swift.String
+  public let width: Swift.Int
+  public let height: Swift.Int
+  public let xPosition: Swift.String
+  public let yPosition: Swift.String
+  public let duration: Swift.Double
+  public let offset: Swift.Double
+  public let apiFramework: Swift.String
+  public let pxratio: Swift.Double
+  public var iconViewTracking: [Foundation.URL]
+  public var iconClicks: MMSmartStreamingSDK.IconClicks?
+  public var staticResource: [MMSmartStreamingSDK.VastStaticResource]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastIcon {
+  public init(attrDict: [Swift.String : Swift.String])
+}
+extension MMSmartStreamingSDK.VastIcon : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastIcon, b: MMSmartStreamingSDK.VastIcon) -> Swift.Bool
+}
+public enum PricingModel : Swift.String, Swift.Codable {
+  case cpc
+  case cpm
+  case cpe
+  case cpv
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct VastPricing : Swift.Codable {
+  public let model: MMSmartStreamingSDK.PricingModel
+  public let currency: Swift.String
+  public var pricing: Swift.Double?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastPricing : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastPricing, b: MMSmartStreamingSDK.VastPricing) -> Swift.Bool
+}
+public struct VastMediaFiles : Swift.Codable {
+  public var mediaFiles: [MMSmartStreamingSDK.VastMediaFile]
+  public var interactiveCreativeFiles: [MMSmartStreamingSDK.VastInteractiveCreativeFile]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastMediaFiles : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastMediaFiles, b: MMSmartStreamingSDK.VastMediaFiles) -> Swift.Bool
+}
+public struct VastAdParameters : Swift.Codable {
+  public let xmlEncoded: Swift.String?
+  public var content: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastAdParameters : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastAdParameters, b: MMSmartStreamingSDK.VastAdParameters) -> Swift.Bool
+}
+public struct VastAdSystem : Swift.Codable {
+  public let version: Swift.String?
+  public var system: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension MMSmartStreamingSDK.VastAdSystem : Swift.Equatable {
+  public static func == (a: MMSmartStreamingSDK.VastAdSystem, b: MMSmartStreamingSDK.VastAdSystem) -> Swift.Bool
+}
+public enum TrackingError : Swift.Error {
+  case MissingAdBreak
+  case unableToUpdateProgressTrackingComplete
+  case unableToUpdateProgress(msg: Swift.String)
+  case unableToProvideCreativeClickThroughUrls
+  case internalError(msg: Swift.String)
+  case unableToSkipAdAtThisTime
+  case noAdFound(withId: Swift.String)
+}
+extension MMSmartStreamingSDK.TrackingEventType : Swift.Equatable {}
+extension MMSmartStreamingSDK.TrackingEventType : Swift.Hashable {}
+extension MMSmartStreamingSDK.TrackingEventType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VMAPTrackingEventType : Swift.Equatable {}
+extension MMSmartStreamingSDK.VMAPTrackingEventType : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPTrackingEventType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.AdType : Swift.Equatable {}
+extension MMSmartStreamingSDK.AdType : Swift.Hashable {}
+extension MMSmartStreamingSDK.AdType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.CompanionsRequirement : Swift.Equatable {}
+extension MMSmartStreamingSDK.CompanionsRequirement : Swift.Hashable {}
+extension MMSmartStreamingSDK.CompanionsRequirement : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VastError : Swift.Equatable {}
+extension MMSmartStreamingSDK.VastError : Swift.Hashable {}
+extension MMSmartStreamingSDK.ReachabilityMM.NetworkStatus : Swift.Equatable {}
+extension MMSmartStreamingSDK.ReachabilityMM.NetworkStatus : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPAdSourceTemplate : Swift.Equatable {}
+extension MMSmartStreamingSDK.VMAPAdSourceTemplate : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPAdSourceTemplate : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VMAPAdBreakType : Swift.Equatable {}
+extension MMSmartStreamingSDK.VMAPAdBreakType : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPAdBreakType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.MMSSAIAdSate : Swift.Equatable {}
+extension MMSmartStreamingSDK.MMSSAIAdSate : Swift.Hashable {}
+extension MMSmartStreamingSDK.MMSSAIAdSate : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.MMCurrentPlayerState : Swift.Equatable {}
+extension MMSmartStreamingSDK.MMCurrentPlayerState : Swift.Hashable {}
+extension MMSmartStreamingSDK.MMOverridableMetrics : Swift.Equatable {}
+extension MMSmartStreamingSDK.MMOverridableMetrics : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPError : Swift.Equatable {}
+extension MMSmartStreamingSDK.VMAPError : Swift.Hashable {}
+extension MMSmartStreamingSDK.ClickType : Swift.Equatable {}
+extension MMSmartStreamingSDK.ClickType : Swift.Hashable {}
+extension MMSmartStreamingSDK.ClickType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VMAPErrorCodes : Swift.Equatable {}
+extension MMSmartStreamingSDK.VMAPErrorCodes : Swift.Hashable {}
+extension MMSmartStreamingSDK.VMAPErrorCodes : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VastErrorCodes : Swift.Equatable {}
+extension MMSmartStreamingSDK.VastErrorCodes : Swift.Hashable {}
+extension MMSmartStreamingSDK.VastErrorCodes : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.VastViewableImpressionType : Swift.Equatable {}
+extension MMSmartStreamingSDK.VastViewableImpressionType : Swift.Hashable {}
+extension MMSmartStreamingSDK.VastViewableImpressionType : Swift.RawRepresentable {}
+extension MMSmartStreamingSDK.PricingModel : Swift.Equatable {}
+extension MMSmartStreamingSDK.PricingModel : Swift.Hashable {}
+extension MMSmartStreamingSDK.PricingModel : Swift.RawRepresentable {}

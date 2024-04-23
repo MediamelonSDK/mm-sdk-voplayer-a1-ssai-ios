@@ -1,0 +1,6 @@
+framework module MMSmartStreamingSDK {
+  umbrella header "MMSmartStreamingSDK.h"
+  export *
+
+  module * { export * }
+}
